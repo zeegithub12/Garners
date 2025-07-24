@@ -1,0 +1,1159 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Garners</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f8f9fa;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      color: #222;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      letter-spacing: 0.05em;
+      color: #111;
+    }
+    .navbar-brand {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.75rem;
+      letter-spacing: 0.1em;
+      color: #111 !important;
+    }
+    .nav-link {
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: #444 !important;
+      transition: color 0.3s ease;
+    }
+    .nav-link:hover, .nav-link:focus {
+      color: #000 !important;
+      text-decoration: underline;
+    }
+    .card {
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      background: transparent;
+    }
+    .card-body {
+      padding: 0;
+    }
+    .card-title {
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: #111;
+    }
+    .card-text {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+    .price-tag {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #000;
+      letter-spacing: 0.05em;
+    }
+    .btn-primary, .btn-dark {
+      background-color: #000;
+      border: none;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 0.5rem 1.5rem;
+      transition: background-color 0.3s ease;
+    }
+    .btn-primary:hover, .btn-primary:focus,
+    .btn-dark:hover, .btn-dark:focus {
+      background-color: #444;
+    }
+    .btn-link {
+      color: #000;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .btn-link:hover, .btn-link:focus {
+      color: #444;
+      text-decoration: underline;
+    }
+    .accordion-button {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+      color: #111;
+      background-color: transparent;
+      border: none;
+      box-shadow: none;
+      padding-left: 0;
+    }
+    .accordion-button:not(.collapsed) {
+      color: #000;
+      background-color: transparent;
+      box-shadow: none;
+    }
+    .accordion-body {
+      font-size: 0.95rem;
+      color: #444;
+      padding-left: 0;
+    }
+    .badge.bg-danger {
+      background-color: #000 !important;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .inquiry-unread {
+      background-color: #e6f0ff !important;
+      border-left: 4px solid #000 !important;
+    }
+    .inquiry-read {
+      background-color: #f9f9f9 !important;
+    }
+    textarea.form-control {
+      font-family: 'Roboto', sans-serif;
+      font-size: 0.95rem;
+      border-radius: 0;
+      border: 1px solid #ccc;
+      transition: border-color 0.3s ease;
+    }
+    textarea.form-control:focus {
+      border-color: #000;
+      box-shadow: none;
+    }
+    input.form-control {
+      border-radius: 0;
+      border: 1px solid #ccc;
+      transition: border-color 0.3s ease;
+    }
+    input.form-control:focus {
+      border-color: #000;
+      box-shadow: none;
+    }
+    .modal-content {
+      border-radius: 0;
+      border: none;
+      box-shadow: 0 0 15px rgba(0,0,0,0.15);
+    }
+    .modal-header {
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.5rem;
+    }
+    .modal-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 0.05em;
+      color: #111;
+    }
+    .btn-close {
+      filter: invert(0.2);
+      transition: filter 0.3s ease;
+    }
+    .btn-close:hover {
+      filter: invert(0.6);
+    }
+    footer {
+      font-family: 'Roboto', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      color: #666;
+    }
+    /* Responsive tweaks */
+    @media (max-width: 576px) {
+      .price-tag {
+        font-size: 1.25rem;
+      }
+      .btn-primary, .btn-dark {
+        padding: 0.4rem 1.2rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#" id="nav-home">Garners</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto" id="nav-links">
+          <!-- Dynamic nav links -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container my-5 flex-grow-1" id="main-content">
+    <!-- Dynamic content -->
+  </main>
+
+  <footer class="bg-white border-top text-center py-3 mt-auto text-muted small">
+    &copy; 2024 Garners. All rights reserved.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Data initialization
+    if (!localStorage.getItem('users')) {
+      const users = [
+        { username: 'admin', password: 'admin', role: 'admin' },
+        { username: 'client', password: 'client', role: 'client' }
+      ];
+      localStorage.setItem('users', JSON.stringify(users));
+    }
+    if (!localStorage.getItem('items')) {
+      const items = [
+        {
+          id: 1,
+          name: 'Santal 33 Eau de Parfum',
+          description: 'A woody aromatic fragrance with notes of sandalwood and cedar.',
+          price: 135,
+          imageUrl: 'https://placehold.co/400x400/png?text=Santal+33+Perfume+Bottle'
+        },
+        {
+          id: 2,
+          name: 'Rose 31 Eau de Parfum',
+          description: 'A spicy floral fragrance with rose, cumin, and vetiver.',
+          price: 135,
+          imageUrl: 'https://placehold.co/400x400/png?text=Rose+31+Perfume+Bottle'
+        },
+        {
+          id: 3,
+          name: 'Another 13 Eau de Parfum',
+          description: 'A musky, woody fragrance with ambroxan and moss.',
+          price: 135,
+          imageUrl: 'https://placehold.co/400x400/png?text=Another+13+Perfume+Bottle'
+        }
+      ];
+      localStorage.setItem('items', JSON.stringify(items));
+    }
+    if (!localStorage.getItem('inquiries')) {
+      localStorage.setItem('inquiries', JSON.stringify([]));
+    }
+
+    let currentUser = null; // {username, role}
+    let currentView = 'browse'; // 'browse', 'login', 'register', 'client-inbox', 'admin-dashboard', 'admin-inbox', 'item-details'
+
+    const navLinksContainer = document.getElementById('nav-links');
+    const mainContent = document.getElementById('main-content');
+
+    // Utility functions
+    function saveUsers(users) {
+      localStorage.setItem('users', JSON.stringify(users));
+    }
+    function getUsers() {
+      return JSON.parse(localStorage.getItem('users'));
+    }
+    function saveItems(items) {
+      localStorage.setItem('items', JSON.stringify(items));
+    }
+    function getItems() {
+      return JSON.parse(localStorage.getItem('items'));
+    }
+    function saveInquiries(inquiries) {
+      localStorage.setItem('inquiries', JSON.stringify(inquiries));
+    }
+    function getInquiries() {
+      return JSON.parse(localStorage.getItem('inquiries'));
+    }
+    function setCurrentUser(user) {
+      currentUser = user;
+      if (user) {
+        localStorage.setItem('currentUser', JSON.stringify(user));
+      } else {
+        localStorage.removeItem('currentUser');
+      }
+    }
+    function loadCurrentUser() {
+      const user = localStorage.getItem('currentUser');
+      if (user) {
+        currentUser = JSON.parse(user);
+      } else {
+        currentUser = null;
+      }
+    }
+
+    // Navigation rendering
+    function renderNav() {
+      navLinksContainer.innerHTML = '';
+
+      function createNavItem(text, onClick, badgeCount = 0) {
+        const li = document.createElement('li');
+        li.className = 'nav-item';
+        const a = document.createElement('a');
+        a.href = '#';
+        a.className = 'nav-link d-flex align-items-center';
+        a.textContent = text;
+        a.addEventListener('click', e => {
+          e.preventDefault();
+          onClick();
+        });
+        if (badgeCount > 0) {
+          const badge = document.createElement('span');
+          badge.className = 'badge bg-danger ms-2 rounded-pill';
+          badge.textContent = badgeCount;
+          a.appendChild(badge);
+        }
+        li.appendChild(a);
+        return li;
+      }
+
+      // Always show Browse Items link
+      navLinksContainer.appendChild(createNavItem('Browse Items', () => {
+        currentView = 'browse';
+        render();
+      }));
+
+      if (!currentUser) {
+        // Show Login and Register links
+        navLinksContainer.appendChild(createNavItem('Login', () => {
+          currentView = 'login';
+          render();
+        }));
+        navLinksContainer.appendChild(createNavItem('Register', () => {
+          currentView = 'register';
+          render();
+        }));
+      } else if (currentUser.role === 'client') {
+        // Client links: Inbox with unread replies badge, Logout
+        // Calculate unread replies count for client
+        const inquiries = getInquiries().filter(i => i.username === currentUser.username);
+        let unreadRepliesCount = 0;
+        inquiries.forEach(i => {
+          if (i.replies && i.replies.length > 0) {
+            const lastSeenKey = `lastSeenReplies_${currentUser.username}_${i.id}`;
+            const lastSeen = localStorage.getItem(lastSeenKey);
+            const latestReplyTime = i.replies.reduce((max, r) => r.timestamp > max ? r.timestamp : max, '1970-01-01T00:00:00.000Z');
+            if (!lastSeen || new Date(latestReplyTime) > new Date(lastSeen)) {
+              unreadRepliesCount++;
+            }
+          }
+        });
+        navLinksContainer.appendChild(createNavItem('My Inquiries', () => {
+          currentView = 'client-inbox';
+          render();
+        }, unreadRepliesCount));
+        navLinksContainer.appendChild(createNavItem('Logout', () => {
+          logout();
+        }));
+      } else if (currentUser.role === 'admin') {
+        // Admin links: Dashboard, Inbox with unread inquiries badge, Logout
+        const inquiries = getInquiries();
+        const unreadCount = inquiries.filter(i => !i.read).length;
+        navLinksContainer.appendChild(createNavItem('Dashboard', () => {
+          currentView = 'admin-dashboard';
+          render();
+        }));
+        navLinksContainer.appendChild(createNavItem('Inbox', () => {
+          currentView = 'admin-inbox';
+          render();
+        }, unreadCount));
+        navLinksContainer.appendChild(createNavItem('Logout', () => {
+          logout();
+        }));
+      }
+    }
+
+    // Logout function
+    function logout() {
+      setCurrentUser(null);
+      currentView = 'browse';
+      render();
+    }
+
+    // Render functions
+
+    // Browse items (always visible)
+    function renderBrowse() {
+      const items = getItems();
+      mainContent.innerHTML = `
+        <h2 class="mb-5 fw-bold text-center" style="letter-spacing:0.1em;">AVAILABLE ITEMS</h2>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5">
+          ${items.map(item => `
+            <div class="col">
+              <div class="card border-0 shadow-sm h-100 cursor-pointer" data-itemid="${item.id}" style="background:#fff;">
+                <img src="${item.imageUrl}" class="card-img-top" alt="Photo of ${item.name}, a perfume bottle with elegant design" />
+                <div class="card-body d-flex flex-column px-0 pt-3">
+                  <h5 class="card-title text-uppercase" style="font-weight:700; letter-spacing:0.1em; font-family: 'Playfair Display', serif;">${item.name}</h5>
+                  <p class="card-text flex-grow-1 text-muted" style="font-size:0.9rem; line-height:1.3;">${item.description}</p>
+                  <div class="d-flex justify-content-between align-items-center mt-3">
+                    <span class="price-tag">₱${item.price.toFixed(2)}</span>
+                    <button class="btn btn-sm btn-outline-dark inquire-btn" style="letter-spacing:0.05em;">INQUIRE</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+
+      // Add event listeners for cards and inquire buttons
+      mainContent.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('click', e => {
+          if (e.target.closest('.inquire-btn')) return;
+          const itemId = parseInt(card.getAttribute('data-itemid'));
+          renderItemDetails(itemId);
+        });
+      });
+
+      mainContent.querySelectorAll('.inquire-btn').forEach(btn => {
+        btn.addEventListener('click', e => {
+          e.stopPropagation();
+          if (!currentUser || currentUser.role !== 'client') {
+            currentView = 'login';
+            render();
+            return;
+          }
+          const card = e.target.closest('.card');
+          const itemId = parseInt(card.getAttribute('data-itemid'));
+          renderInquiryForm(itemId);
+        });
+      });
+    }
+
+    // Login form
+    function renderLogin() {
+      mainContent.innerHTML = `
+        <div class="row justify-content-center">
+          <div class="col-md-5 col-12">
+            <div class="card shadow-sm border-0">
+              <div class="card-body p-4">
+                <h2 class="card-title text-center mb-4 fw-bold" style="letter-spacing:0.1em;">LOGIN TO GARNERS</h2>
+                <form id="login-form" novalidate>
+                  <div class="mb-3">
+                    <label for="login-username" class="form-label text-uppercase fw-semibold" style="letter-spacing:0.05em;">Username</label>
+                    <input type="text" class="form-control" id="login-username" required />
+                  </div>
+                  <div class="mb-3">
+                    <label for="login-password" class="form-label text-uppercase fw-semibold" style="letter-spacing:0.05em;">Password</label>
+                    <input type="password" class="form-control" id="login-password" required />
+                  </div>
+                  <button type="submit" class="btn btn-dark w-100 text-uppercase fw-semibold" style="letter-spacing:0.1em;">Login</button>
+                </form>
+                <p class="mt-3 text-center" style="font-size:0.9rem;">Don't have an account? <a href="#" id="go-register" class="text-dark fw-semibold">Register here</a></p>
+                <p class="mt-2 text-center"><a href="#" id="go-browse" class="text-dark fw-semibold">Back to Browse</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('go-register').addEventListener('click', e => {
+        e.preventDefault();
+        currentView = 'register';
+        render();
+      });
+      document.getElementById('go-browse').addEventListener('click', e => {
+        e.preventDefault();
+        currentView = 'browse';
+        render();
+      });
+
+      document.getElementById('login-form').addEventListener('submit', e => {
+        e.preventDefault();
+        const username = document.getElementById('login-username').value.trim();
+        const password = document.getElementById('login-password').value.trim();
+        const users = getUsers();
+        const user = users.find(u => u.username === username && u.password === password);
+        if (user) {
+          setCurrentUser({ username: user.username, role: user.role });
+          currentView = user.role === 'admin' ? 'admin-dashboard' : 'browse';
+          render();
+        } else {
+          alert('Invalid username or password.');
+        }
+      });
+    }
+
+    // Register form
+    function renderRegister() {
+      mainContent.innerHTML = `
+        <div class="row justify-content-center">
+          <div class="col-md-5 col-12">
+            <div class="card shadow-sm border-0">
+              <div class="card-body p-4">
+                <h2 class="card-title text-center mb-4 fw-bold" style="letter-spacing:0.1em;">REGISTER FOR GARNERS</h2>
+                <form id="register-form" novalidate>
+                  <div class="mb-3">
+                    <label for="register-username" class="form-label text-uppercase fw-semibold" style="letter-spacing:0.05em;">Username</label>
+                    <input type="text" class="form-control" id="register-username" required />
+                  </div>
+                  <div class="mb-3">
+                    <label for="register-password" class="form-label text-uppercase fw-semibold" style="letter-spacing:0.05em;">Password</label>
+                    <input type="password" class="form-control" id="register-password" required />
+                  </div>
+                  <div class="mb-3">
+                    <label for="register-password2" class="form-label text-uppercase fw-semibold" style="letter-spacing:0.05em;">Confirm Password</label>
+                    <input type="password" class="form-control" id="register-password2" required />
+                  </div>
+                  <button type="submit" class="btn btn-dark w-100 text-uppercase fw-semibold" style="letter-spacing:0.1em;">Register</button>
+                </form>
+                <p class="mt-3 text-center" style="font-size:0.9rem;">Already have an account? <a href="#" id="go-login" class="text-dark fw-semibold">Login here</a></p>
+                <p class="mt-2 text-center"><a href="#" id="go-browse" class="text-dark fw-semibold">Back to Browse</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('go-login').addEventListener('click', e => {
+        e.preventDefault();
+        currentView = 'login';
+        render();
+      });
+      document.getElementById('go-browse').addEventListener('click', e => {
+        e.preventDefault();
+        currentView = 'browse';
+        render();
+      });
+
+      document.getElementById('register-form').addEventListener('submit', e => {
+        e.preventDefault();
+        const username = document.getElementById('register-username').value.trim();
+        const password = document.getElementById('register-password').value.trim();
+        const password2 = document.getElementById('register-password2').value.trim();
+        if (password !== password2) {
+          alert('Passwords do not match.');
+          return;
+        }
+        if (username.length < 3) {
+          alert('Username must be at least 3 characters.');
+          return;
+        }
+        if (password.length < 4) {
+          alert('Password must be at least 4 characters.');
+          return;
+        }
+        const users = getUsers();
+        if (users.find(u => u.username === username)) {
+          alert('Username already exists.');
+          return;
+        }
+        users.push({ username, password, role: 'client' });
+        saveUsers(users);
+        alert('Registration successful! You can now login.');
+        currentView = 'login';
+        render();
+      });
+    }
+
+    // Item details with inquiry button
+    function renderItemDetails(itemId) {
+      currentItemId = itemId;
+      const items = getItems();
+      const item = items.find(i => i.id === itemId);
+      if (!item) {
+        currentView = 'browse';
+        render();
+        return;
+      }
+      mainContent.innerHTML = `
+        <button class="btn btn-link mb-4 fw-semibold" id="back-to-browse" style="letter-spacing:0.05em;"><i class="fas fa-arrow-left"></i> Back to Browse</button>
+        <div class="row g-0 shadow-sm bg-white">
+          <div class="col-md-6">
+            <img src="${item.imageUrl}" class="img-fluid rounded-0" alt="Photo of ${item.name}, a perfume bottle with elegant design" />
+          </div>
+          <div class="col-md-6 d-flex flex-column justify-content-center p-4">
+            <h3 class="fw-bold text-uppercase" style="letter-spacing:0.1em;">${item.name}</h3>
+            <p class="text-muted mb-4" style="font-size:1rem; line-height:1.4;">${item.description}</p>
+            <h4 class="price-tag mb-4">₱${item.price.toFixed(2)}</h4>
+            <button class="btn btn-dark btn-lg text-uppercase fw-semibold" id="btn-inquire" style="letter-spacing:0.1em;">Send Inquiry</button>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('back-to-browse').addEventListener('click', e => {
+        e.preventDefault();
+        currentView = 'browse';
+        render();
+      });
+
+      document.getElementById('btn-inquire').addEventListener('click', () => {
+        if (!currentUser || currentUser.role !== 'client') {
+          currentView = 'login';
+          render();
+          return;
+        }
+        renderInquiryForm(item.id);
+      });
+    }
+
+    // Inquiry form modal
+    function renderInquiryForm(itemId) {
+      const items = getItems();
+      const item = items.find(i => i.id === itemId);
+      if (!item) return;
+
+      // Create modal HTML
+      const modalHtml = `
+        <div class="modal fade" id="inquiryModal" tabindex="-1" aria-labelledby="inquiryModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-0 border-0 shadow">
+              <form id="inquiry-form" novalidate>
+                <div class="modal-header border-bottom-0 pb-0">
+                  <h5 class="modal-title fw-bold text-uppercase" id="inquiryModalLabel" style="letter-spacing:0.1em;">Inquiry for "${item.name}"</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-0">
+                  <div class="mb-3">
+                    <label for="inquiry-message" class="form-label text-uppercase fw-semibold" style="letter-spacing:0.05em;">Your Message</label>
+                    <textarea class="form-control" id="inquiry-message" rows="4" required></textarea>
+                  </div>
+                </div>
+                <div class="modal-footer border-top-0 pt-0">
+                  <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal" style="letter-spacing:0.05em;">Cancel</button>
+                  <button type="submit" class="btn btn-dark text-uppercase fw-semibold" style="letter-spacing:0.1em;">Send Inquiry</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      `;
+
+      // Append modal to body
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = modalHtml;
+      document.body.appendChild(tempDiv.firstElementChild);
+
+      const inquiryModal = new bootstrap.Modal(document.getElementById('inquiryModal'));
+      inquiryModal.show();
+
+      // Remove modal from DOM on hide
+      document.getElementById('inquiryModal').addEventListener('hidden.bs.modal', () => {
+        document.getElementById('inquiryModal').remove();
+      });
+
+      document.getElementById('inquiry-form').addEventListener('submit', e => {
+        e.preventDefault();
+        const message = document.getElementById('inquiry-message').value.trim();
+        if (!message) {
+          alert('Please enter a message.');
+          return;
+        }
+        const inquiries = getInquiries();
+        const newInquiry = {
+          id: Date.now(),
+          itemId: item.id,
+          username: currentUser.username,
+          message,
+          read: false,
+          timestamp: new Date().toISOString(),
+          replies: [],
+          clientReplies: []
+        };
+        inquiries.push(newInquiry);
+        saveInquiries(inquiries);
+        alert('Inquiry sent to admin.');
+        inquiryModal.hide();
+        currentView = 'client-inbox';
+        render();
+      });
+    }
+
+    // Client inbox with replies, reply form, and delete inquiry
+    function renderClientInbox() {
+      const inquiries = getInquiries().filter(i => i.username === currentUser.username);
+      const items = getItems();
+
+      // Mark replies as read when client views inbox
+      inquiries.forEach(i => {
+        if (i.replies && i.replies.length > 0) {
+          const lastSeenKey = `lastSeenReplies_${currentUser.username}_${i.id}`;
+          localStorage.setItem(lastSeenKey, new Date().toISOString());
+        }
+      });
+
+      mainContent.innerHTML = `
+        <h2 class="mb-4 fw-bold text-uppercase" style="letter-spacing:0.1em;">My Inquiries</h2>
+        ${inquiries.length === 0 ? `<p>You have not sent any inquiries yet.</p>` : ''}
+        <div class="accordion" id="clientInboxAccordion">
+          ${inquiries.map((inq, idx) => {
+            const item = items.find(i => i.id === inq.itemId);
+            const hasUnreadReplies = (() => {
+              if (!inq.replies || inq.replies.length === 0) return false;
+              const lastSeenKey = `lastSeenReplies_${currentUser.username}_${inq.id}`;
+              const lastSeen = localStorage.getItem(lastSeenKey);
+              const latestReplyTime = inq.replies.reduce((max, r) => r.timestamp > max ? r.timestamp : max, '1970-01-01T00:00:00.000Z');
+              return !lastSeen || new Date(latestReplyTime) > new Date(lastSeen);
+            })();
+            return `
+              <div class="accordion-item">
+                <h2 class="accordion-header d-flex justify-content-between align-items-center" id="heading${idx}">
+                  <button class="accordion-button ${idx !== 0 ? 'collapsed' : ''} flex-grow-1" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${idx}" aria-expanded="${idx === 0}" aria-controls="collapse${idx}">
+                    Inquiry about "${item.name}" ${hasUnreadReplies ? '<span class="badge bg-danger ms-2">New Reply</span>' : ''}
+                  </button>
+                  <button class="btn btn-sm btn-outline-danger ms-3 delete-inquiry-btn" data-inquiryid="${inq.id}" title="Delete Inquiry"><i class="fas fa-trash-alt"></i></button>
+                </h2>
+                <div id="collapse${idx}" class="accordion-collapse collapse ${idx === 0 ? 'show' : ''}" aria-labelledby="heading${idx}" data-bs-parent="#clientInboxAccordion">
+                  <div class="accordion-body">
+                    <p><strong>Your message:</strong></p>
+                    <p>${escapeHtml(inq.message)}</p>
+                    <p class="text-muted small">Sent on: ${new Date(inq.timestamp).toLocaleString()}</p>
+                    ${inq.replies && inq.replies.length > 0 ? `
+                      <hr />
+                      <p><strong>Admin Replies:</strong></p>
+                      ${inq.replies.map(reply => `
+                        <div class="border rounded p-2 mb-2 bg-light">
+                          <p>${escapeHtml(reply.message)}</p>
+                          <p class="text-muted small mb-0">${new Date(reply.timestamp).toLocaleString()}</p>
+                        </div>
+                      `).join('')}
+                    ` : ''}
+                    <form class="reply-form mt-3" data-inquiryid="${inq.id}">
+                      <div class="mb-3">
+                        <label for="reply-message-${inq.id}" class="form-label text-uppercase fw-semibold" style="letter-spacing:0.05em;">Your Reply</label>
+                        <textarea class="form-control" id="reply-message-${inq.id}" rows="3" required></textarea>
+                      </div>
+                      <button type="submit" class="btn btn-dark btn-sm text-uppercase fw-semibold" style="letter-spacing:0.1em;">Send Reply</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+        <button class="btn btn-link mt-4 fw-semibold" id="back-to-browse" style="letter-spacing:0.05em;">Back to Browse</button>
+      `;
+
+      document.getElementById('back-to-browse').addEventListener('click', e => {
+        e.preventDefault();
+        currentView = 'browse';
+        render();
+      });
+
+      // Handle client reply form submissions
+      mainContent.querySelectorAll('.reply-form').forEach(form => {
+        form.addEventListener('submit', e => {
+          e.preventDefault();
+          const inquiryId = parseInt(form.getAttribute('data-inquiryid'));
+          const textarea = form.querySelector('textarea');
+          const message = textarea.value.trim();
+          if (!message) {
+            alert('Please enter a reply message.');
+            return;
+          }
+          let inquiries = getInquiries();
+          const inquiry = inquiries.find(i => i.id === inquiryId);
+          if (!inquiry) {
+            alert('Inquiry not found.');
+            return;
+          }
+          if (!inquiry.clientReplies) inquiry.clientReplies = [];
+          inquiry.clientReplies.push({
+            message,
+            timestamp: new Date().toISOString()
+          });
+          saveInquiries(inquiries);
+          alert('Reply sent to admin.');
+          textarea.value = '';
+          render();
+        });
+      });
+
+      // Handle delete inquiry buttons
+      mainContent.querySelectorAll('.delete-inquiry-btn').forEach(btn => {
+        btn.addEventListener('click', e => {
+          e.preventDefault();
+          e.stopPropagation();
+          const inquiryId = parseInt(btn.getAttribute('data-inquiryid'));
+          if (confirm('Are you sure you want to delete this inquiry? This action cannot be undone.')) {
+            let inquiries = getInquiries();
+            inquiries = inquiries.filter(i => i.id !== inquiryId);
+            saveInquiries(inquiries);
+            alert('Inquiry deleted.');
+            render();
+          }
+        });
+      });
+    }
+
+    // Admin dashboard with item upload
+    function renderAdminDashboard() {
+      const items = getItems();
+
+      mainContent.innerHTML = `
+        <h2 class="mb-5 fw-bold text-uppercase" style="letter-spacing:0.1em;">Admin Dashboard - Manage Items</h2>
+        <div class="card mb-5 shadow-sm border-0">
+          <div class="card-body p-4">
+            <h4 class="mb-4 fw-bold text-uppercase" style="letter-spacing:0.1em;">Upload New Item</h4>
+            <form id="upload-item-form" enctype="multipart/form-data" novalidate>
+              <div class="mb-4">
+                <label for="item-name" class="form-label text-uppercase fw-semibold" style="letter-spacing:0.05em;">Item Name</label>
+                <input type="text" class="form-control" id="item-name" required />
+              </div>
+              <div class="mb-4">
+                <label for="item-description" class="form-label text-uppercase fw-semibold" style="letter-spacing:0.05em;">Description</label>
+                <textarea class="form-control" id="item-description" rows="4" required></textarea>
+              </div>
+              <div class="mb-4">
+                <label for="item-price" class="form-label text-uppercase fw-semibold" style="letter-spacing:0.05em;">Price (PHP)</label>
+                <input type="number" class="form-control" id="item-price" min="0" step="0.01" required />
+              </div>
+              <div class="mb-4">
+                <label for="item-image" class="form-label text-uppercase fw-semibold" style="letter-spacing:0.05em;">Upload Photo</label>
+                <input type="file" class="form-control" id="item-image" accept="image/*" required />
+              </div>
+              <button type="submit" class="btn btn-dark text-uppercase fw-semibold" style="letter-spacing:0.1em;">Add Item</button>
+            </form>
+          </div>
+        </div>
+        <h4 class="mb-4 fw-bold text-uppercase" style="letter-spacing:0.1em;">Current Items</h4>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5">
+          ${items.map(item => `
+            <div class="col">
+              <div class="card h-100 border-0 shadow-sm" style="background:#fff;">
+                <img src="${item.imageUrl}" class="card-img-top" alt="Photo of ${item.name}, a perfume bottle with elegant design" />
+                <div class="card-body d-flex flex-column px-0 pt-3">
+                  <h5 class="card-title text-uppercase" style="font-weight:700; letter-spacing:0.1em; font-family: 'Playfair Display', serif;">${item.name}</h5>
+                  <p class="card-text flex-grow-1 text-muted" style="font-size:0.9rem; line-height:1.3;">${item.description}</p>
+                  <div class="d-flex justify-content-between align-items-center mt-3">
+                    <span class="price-tag">₱${item.price.toFixed(2)}</span>
+                    <button class="btn btn-sm btn-outline-danger delete-item-btn" data-itemid="${item.id}" style="letter-spacing:0.05em;">Delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+
+      document.getElementById('upload-item-form').addEventListener('submit', e => {
+        e.preventDefault();
+        const name = document.getElementById('item-name').value.trim();
+        const description = document.getElementById('item-description').value.trim();
+        const price = parseFloat(document.getElementById('item-price').value);
+        const fileInput = document.getElementById('item-image');
+        if (!name || !description || isNaN(price) || price < 0) {
+          alert('Please fill all fields correctly.');
+          return;
+        }
+        if (!fileInput.files || fileInput.files.length === 0) {
+          alert('Please select an image file.');
+          return;
+        }
+        const file = fileInput.files[0];
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          const imageUrl = event.target.result;
+          const items = getItems();
+          const newItem = {
+            id: Date.now(),
+            name,
+            description,
+            price,
+            imageUrl
+          };
+          items.push(newItem);
+          saveItems(items);
+          alert('Item added successfully.');
+          currentView = 'admin-dashboard';
+          render();
+        };
+        reader.readAsDataURL(file);
+      });
+
+      mainContent.querySelectorAll('.delete-item-btn').forEach(btn => {
+        btn.addEventListener('click', e => {
+          e.preventDefault();
+          const itemId = parseInt(btn.getAttribute('data-itemid'));
+          if (confirm('Are you sure you want to delete this item?')) {
+            let items = getItems();
+            items = items.filter(i => i.id !== itemId);
+            saveItems(items);
+            let inquiries = getInquiries();
+            inquiries = inquiries.filter(i => i.itemId !== itemId);
+            saveInquiries(inquiries);
+            alert('Item deleted.');
+            render();
+          }
+        });
+      });
+    }
+
+    // Admin inbox with inquiries and reply form
+    function renderAdminInbox() {
+      const inquiries = getInquiries();
+      const items = getItems();
+
+      // Group inquiries by itemId
+      const inquiriesByItem = {};
+      inquiries.forEach(inq => {
+        if (!inquiriesByItem[inq.itemId]) inquiriesByItem[inq.itemId] = [];
+        inquiriesByItem[inq.itemId].push(inq);
+      });
+
+      mainContent.innerHTML = `
+        <h2 class="mb-4 fw-bold text-uppercase" style="letter-spacing:0.1em;">Admin Inbox - Customer Inquiries</h2>
+        ${inquiries.length === 0 ? `<p>No inquiries received yet.</p>` : ''}
+        <div class="accordion" id="adminInboxAccordion">
+          ${Object.entries(inquiriesByItem).map(([itemId, inqs], idx) => {
+            const item = items.find(i => i.id === parseInt(itemId));
+            if (!item) return '';
+            return `
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="adminHeading${idx}">
+                  <button class="accordion-button ${idx !== 0 ? 'collapsed' : ''}" type="button" data-bs-toggle="collapse" data-bs-target="#adminCollapse${idx}" aria-expanded="${idx === 0}" aria-controls="adminCollapse${idx}">
+                    ${item.name}
+                  </button>
+                </h2>
+                <div id="adminCollapse${idx}" class="accordion-collapse collapse ${idx === 0 ? 'show' : ''}" aria-labelledby="adminHeading${idx}" data-bs-parent="#adminInboxAccordion">
+                  <div class="accordion-body">
+                    ${inqs.map(inq => {
+                      const clientRepliesCount = inq.clientReplies ? inq.clientReplies.length : 0;
+                      return `
+                        <div class="border rounded p-3 mb-3 ${inq.read ? 'inquiry-read' : 'inquiry-unread'}">
+                          <div class="d-flex justify-content-between align-items-center mb-2 cursor-pointer inquiry-header" data-inquiryid="${inq.id}">
+                            <strong>From: ${inq.username}</strong>
+                            <small class="text-muted">${new Date(inq.timestamp).toLocaleString()}</small>
+                          </div>
+                          <p>${escapeHtml(inq.message)}</p>
+                          ${inq.replies && inq.replies.length > 0 ? `
+                            <hr />
+                            <p><strong>Replies:</strong></p>
+                            ${inq.replies.map(reply => `
+                              <div class="border rounded p-2 mb-2 bg-light">
+                                <p>${escapeHtml(reply.message)}</p>
+                                <small class="text-muted">${new Date(reply.timestamp).toLocaleString()}</small>
+                              </div>
+                            `).join('')}
+                          ` : ''}
+                          ${clientRepliesCount > 0 ? `
+                            <hr />
+                            <p><strong>Client Replies:</strong></p>
+                            ${inq.clientReplies.map(creply => `
+                              <div class="border rounded p-2 mb-2 bg-white">
+                                <p>${escapeHtml(creply.message)}</p>
+                                <small class="text-muted">${new Date(creply.timestamp).toLocaleString()}</small>
+                              </div>
+                            `).join('')}
+                          ` : ''}
+                          <button class="btn btn-sm btn-dark reply-btn mt-2 text-uppercase fw-semibold" data-inquiryid="${inq.id}" style="letter-spacing:0.05em;">Reply</button>
+                          <div class="reply-form-container mt-3" data-inquiryid="${inq.id}" style="display:none;">
+                            <form class="reply-form">
+                              <div class="mb-2">
+                                <textarea class="form-control" rows="3" placeholder="Write your reply here..." required></textarea>
+                              </div>
+                              <div class="d-flex justify-content-end gap-2">
+                                <button type="button" class="btn btn-outline-secondary btn-sm cancel-reply-btn">Cancel</button>
+                                <button type="submit" class="btn btn-dark btn-sm text-uppercase fw-semibold" style="letter-spacing:0.05em;">Send Reply</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      `;
+                    }).join('')}
+                  </div>
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+        <button class="btn btn-link mt-4 fw-semibold" id="back-to-dashboard" style="letter-spacing:0.05em;">Back to Dashboard</button>
+      `;
+
+      document.getElementById('back-to-dashboard').addEventListener('click', e => {
+        e.preventDefault();
+        currentView = 'admin-dashboard';
+        render();
+      });
+
+      // Mark inquiry read on header click
+      mainContent.querySelectorAll('.inquiry-header').forEach(header => {
+        header.addEventListener('click', () => {
+          const inquiryId = parseInt(header.getAttribute('data-inquiryid'));
+          let inquiries = getInquiries();
+          const inquiry = inquiries.find(i => i.id === inquiryId);
+          if (!inquiry) return;
+          inquiry.read = true;
+          saveInquiries(inquiries);
+          render();
+        });
+      });
+
+      // Reply button toggles reply form
+      mainContent.querySelectorAll('.reply-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const inquiryId = btn.getAttribute('data-inquiryid');
+          const container = mainContent.querySelector(`.reply-form-container[data-inquiryid="${inquiryId}"]`);
+          if (container) {
+            container.style.display = container.style.display === 'none' || container.style.display === '' ? 'block' : 'none';
+          }
+        });
+      });
+
+      // Cancel reply buttons
+      mainContent.querySelectorAll('.cancel-reply-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const container = btn.closest('.reply-form-container');
+          if (container) {
+            container.style.display = 'none';
+            const textarea = container.querySelector('textarea');
+            if (textarea) textarea.value = '';
+          }
+        });
+      });
+
+      // Handle reply form submissions
+      mainContent.querySelectorAll('.reply-form').forEach(form => {
+        form.addEventListener('submit', e => {
+          e.preventDefault();
+          const container = form.closest('.reply-form-container');
+          const inquiryId = parseInt(container.getAttribute('data-inquiryid'));
+          const textarea = form.querySelector('textarea');
+          const message = textarea.value.trim();
+          if (!message) {
+            alert('Please enter a reply message.');
+            return;
+          }
+          let inquiries = getInquiries();
+          const inquiry = inquiries.find(i => i.id === inquiryId);
+          if (!inquiry) {
+            alert('Inquiry not found.');
+            return;
+          }
+          if (!inquiry.replies) inquiry.replies = [];
+          inquiry.replies.push({
+            message,
+            timestamp: new Date().toISOString()
+          });
+          inquiry.read = true;
+          saveInquiries(inquiries);
+          alert('Reply sent.');
+          render();
+        });
+      });
+    }
+
+    // Escape HTML helper to prevent XSS
+    function escapeHtml(text) {
+      const map = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+      };
+      return text.replace(/[&<>"']/g, m => map[m]);
+    }
+
+    // Main render function
+    function render() {
+      loadCurrentUser();
+      renderNav();
+
+      switch (currentView) {
+        case 'login':
+          renderLogin();
+          break;
+        case 'register':
+          renderRegister();
+          break;
+        case 'client-inbox':
+          if (!currentUser || currentUser.role !== 'client') {
+            currentView = 'login';
+            render();
+            return;
+          }
+          renderClientInbox();
+          break;
+        case 'admin-dashboard':
+          if (!currentUser || currentUser.role !== 'admin') {
+            currentView = 'login';
+            render();
+            return;
+          }
+          renderAdminDashboard();
+          break;
+        case 'admin-inbox':
+          if (!currentUser || currentUser.role !== 'admin') {
+            currentView = 'login';
+            render();
+            return;
+          }
+          renderAdminInbox();
+          break;
+        case 'item-details':
+          renderItemDetails(currentItemId);
+          break;
+        case 'browse':
+        default:
+          renderBrowse();
+          break;
+      }
+    }
+
+    // Track current item for details view
+    let currentItemId = null;
+
+    // Override renderItemDetails to set currentItemId
+    function renderItemDetails(itemId) {
+      currentItemId = itemId;
+      const items = getItems();
+      const item = items.find(i => i.id === itemId);
+      if (!item) {
+        currentView = 'browse';
+        render();
+        return;
+      }
+      mainContent.innerHTML = `
+        <button class="btn btn-link mb-4 fw-semibold" id="back-to-browse" style="letter-spacing:0.05em;"><i class="fas fa-arrow-left"></i> Back to Browse</button>
+        <div class="row g-0 shadow-sm bg-white">
+          <div class="col-md-6">
+            <img src="${item.imageUrl}" class="img-fluid rounded-0" alt="Photo of ${item.name}, a perfume bottle with elegant design" />
+          </div>
+          <div class="col-md-6 d-flex flex-column justify-content-center p-4">
+            <h3 class="fw-bold text-uppercase" style="letter-spacing:0.1em;">${item.name}</h3>
+            <p class="text-muted mb-4" style="font-size:1rem; line-height:1.4;">${item.description}</p>
+            <h4 class="price-tag mb-4">₱${item.price.toFixed(2)}</h4>
+            <button class="btn btn-dark btn-lg text-uppercase fw-semibold" id="btn-inquire" style="letter-spacing:0.1em;">Send Inquiry</button>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('back-to-browse').addEventListener('click', e => {
+        e.preventDefault();
+        currentView = 'browse';
+        render();
+      });
+
+      document.getElementById('btn-inquire').addEventListener('click', () => {
+        if (!currentUser || currentUser.role !== 'client') {
+          currentView = 'login';
+          render();
+          return;
+        }
+        renderInquiryForm(item.id);
+      });
+    }
+
+    // On page load
+    window.addEventListener('load', () => {
+      loadCurrentUser();
+      currentView = 'browse';
+      render();
+    });
+  </script>
+</body>
+</html>
